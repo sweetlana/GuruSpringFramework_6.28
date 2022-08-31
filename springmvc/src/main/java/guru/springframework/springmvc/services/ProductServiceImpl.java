@@ -2,6 +2,7 @@ package guru.springframework.springmvc.services;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,24 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product getProductById(Integer id) {
 		return products.get(id);
+	}
+	
+	@Override
+	public Product saveOrUpdateProduct(Product product) {
+		if (product != null) {
+			if (product.getId() == null) {
+				product.setId(getNextKey());
+			}
+			products.put(product.getId(), product);
+			
+			return product;
+		} else {
+			throw new RuntimeException("Product Can`t be nill");
+		}
+	}
+	
+	private Integer getNextKey() {
+		return Collections.max(products.keySet()) + 1;
 	}
 	
 	private void loadProducts() {
