@@ -31,6 +31,11 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
+	public void deleteProduct(Integer id) {
+		products.remove(id);
+	} 
+	
+	@Override
 	public Product saveOrUpdateProduct(Product product) {
 		if (product != null) {
 			if (product.getId() == null) {
