@@ -1,6 +1,6 @@
 package guru.springframework.springmvc.domain;
 
-public class Customer {
+public class Customer implements DomainObject{
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -66,9 +66,11 @@ public class Customer {
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
+	@Override
 	public Integer getId() {
 		return id;
 	}
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}

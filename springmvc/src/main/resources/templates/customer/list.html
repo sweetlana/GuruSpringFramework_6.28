@@ -31,7 +31,7 @@
 			<td th:text="${customer.id}"></td>
 			<td th:text="${customer.firstName}"></td>
 			<td th:text="${customer.lastName}"></td>
-			<td><a th:href="${'/customer/' + customer.id}">View</a></td>
+			<td><a th:href="${'/customer/show/' + customer.id}">View</a></td>
 			<td><a th:href="${'/customer/edit/' + customer.id }">Edit</a></td>
 			<td><a th:href="${'/customer/delete/' + customer.id}">Delete</a></td>
 		</tr>
